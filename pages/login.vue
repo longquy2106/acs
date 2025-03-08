@@ -1,19 +1,21 @@
 <template>
-  <home />
+  <Login />
 </template>
 
 <script>
-import home from "./home.vue";
+import Login from "~/components/Login.vue";
 export default defineComponent({
   setup() {
     definePageMeta({
-      layout: "dashboard",
+      layout: "log",
     });
   },
   components: {
-    home,
+    Login,
   },
 });
 </script>
+
 <style scoped>
+/* CSS module không cần khai báo scoped */
 </style>

@@ -1,6 +1,8 @@
 <template>
-  hello layout
-  <slot />
+<h1>default layout</h1>
+  <main>
+    <slot />
+  </main>
 </template>
 
 <script>

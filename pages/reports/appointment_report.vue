@@ -1,19 +1,20 @@
 <template>
-  <home />
+  <AppointmentReport />
 </template>
-
 <script>
-import home from "./home.vue";
+import AppointmentReport from "~/components/reports/AppointmentReport.vue";
 export default defineComponent({
   setup() {
     definePageMeta({
       layout: "dashboard",
     });
   },
+  name: "AppointmentReportPage",
   components: {
-    home,
+    AppointmentReport,
   },
 });
 </script>
+
 <style scoped>
 </style>
