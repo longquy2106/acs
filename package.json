@@ -32,6 +32,7 @@
     "@mdi/font": "^7.3.67",
     "ant-design-vue": "3.0.0-beta.8",
     "axios": "^1.6.0",
+    "chart.js": "^4.4.8",
     "date-fns": "^3.3.1",
     "dayspan-vuetify": "^0.4.0",
     "dotenv": "^16.3.1",
