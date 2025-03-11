@@ -106,6 +106,12 @@ export default {
     return {
       menuConfig: [
         {
+          key: "",
+          label: "Dashboard",
+          icon: "fund_outlined",
+          roles: ["admin"],
+        },
+        {
           key: "manual_sync",
           label: "Đồng bộ",
           icon: "manual_sync",
