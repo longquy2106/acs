@@ -19,44 +19,44 @@ export default {
     return {
       myChart: null,
       chartData: null,
-      chartType: "line",
+      chartType: "polarArea",
     };
   },
-  mounted() {
-    Chart.register(...registerables);
-    this.renderChart();
+  async mounted() {
+    await Chart.register(...registerables);
+    await this.$nextTick(async() => {
+      await this.renderChart();
+    });
   },
   methods: {
-    renderChart() {
+    async renderChart() {
       const ctx = this.$refs.chartRef.getContext("2d");
 
-      // Tạo Gradient dọc (top to bottom)
-      const gradient = ctx.createLinearGradient(0, 0, 0, 400);
-      gradient.addColorStop(0, "rgba(54, 162, 235, 0.8)"); // Màu đậm ở gần
-      gradient.addColorStop(1, "rgba(54, 162, 235, 0)"); // Mờ dần khi xa
+      const colors = ['#36d6eb50', '#4edcf050', 
+      '#66e2f550', '#7ee8fa50', '#96eeff50'];
 
-      this.myChart = new Chart(ctx, {
-        type: "line",
+      const randomNumbers = Array.from({ length: 5 }, () => Math.floor(Math.random() * (15 - 10 + 1)) + 11);
+
+      this.myChart = await new Chart(ctx, {
+        type: "polarArea",
         data: {
-          labels: ["January", "February", "March", "April"],
+          labels: ["January", "February", "March", "April", "May"],
           datasets: [
             {
               label: "Sales",
-              data: [10, 20, 15, 25],
-              borderColor: "#36A2EB",
-              borderWidth: 2,
-              fill: "start", // Fill từ đường biểu đồ lên trên
-
-              backgroundColor: gradient, // Áp dụng gradient cho fill
-              tension: 0.4, // Đường cong mượt
+              data: randomNumbers,
+              backgroundColor: colors,
+              borderColor: '#36d6eb',
+              borderWidth: 1,
             },
           ],
         },
         options: {
           responsive: true,
           maintainAspectRatio: false,
+          resizeDelay: 200, // Giảm giật khi resize
           scales: {
-            y: {
+            r: {
               beginAtZero: true,
             },
           },
@@ -72,9 +72,9 @@ export default {
       deep: true,
     },
   },
-  beforeUnmount() {
+  async beforeUnmount() {
     if (this.myChart) {
-      this.myChart.destroy();
+      await this.myChart.destroy();
     }
   },
 };
@@ -82,8 +82,9 @@ export default {
 
 <style scoped>
 canvas {
-  width: 100%;
-  height: 400px;
+  width: 100% !important;
+  height: 300px !important;
+  display: block;
 }
 
 .custom-card {
