@@ -10,7 +10,7 @@
       </v-card>
     </v-col>
     <v-col cols="12" md="8" sm="12">
-      <v-card>
+      <v-card height="100%">
         <v-card-text>
           <client-only>
             <LineChart />
@@ -20,7 +20,7 @@
     </v-col>
 
     <v-col cols="12" md="8" sm="12">
-      <v-card>
+      <v-card height="100%">
         <v-card-text>
           <client-only>
             <BarChart />

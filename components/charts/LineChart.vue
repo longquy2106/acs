@@ -44,19 +44,35 @@ export default {
       gradient.addColorStop(0, "rgba(54, 162, 235, 0.3)"); // Màu đậm ở gần
       gradient.addColorStop(1, "rgba(54, 162, 235, 0)"); // Mờ dần khi xa
 
-
       // Gradient cho đường thứ hai
       const gradient2 = ctx.createLinearGradient(0, 0, 0, 400);
       gradient2.addColorStop(0, "rgba(54, 214, 235, 0.3)"); // Đỏ đậm
       gradient2.addColorStop(1, "rgba(54, 214, 235, 0)"); // Mờ dần
 
-      const randomNumbers = Array.from({ length: 10 }, () => Math.floor(Math.random() * (12 - 10 + 1)) + 11);
-      const randomNumbers2 = Array.from({ length: 10 }, () => Math.floor(Math.random() * (12 - 10 + 1)) + 11);
-      
+      const randomNumbers = Array.from(
+        { length: 10 },
+        () => Math.floor(Math.random() * (12 - 10 + 1)) + 11
+      );
+      const randomNumbers2 = Array.from(
+        { length: 10 },
+        () => Math.floor(Math.random() * (12 - 10 + 1)) + 11
+      );
+
       this.myChart = new Chart(ctx, {
         type: "line",
         data: {
-          labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October"],
+          labels: [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+          ],
           datasets: [
             {
               label: "Sales",
