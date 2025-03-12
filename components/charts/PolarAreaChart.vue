@@ -24,7 +24,7 @@ export default {
   },
   async mounted() {
     await Chart.register(...registerables);
-    await this.$nextTick(async() => {
+    await this.$nextTick(async () => {
       await this.renderChart();
     });
   },
@@ -32,10 +32,18 @@ export default {
     async renderChart() {
       const ctx = this.$refs.chartRef.getContext("2d");
 
-      const colors = ['#36d6eb50', '#4edcf050', 
-      '#66e2f550', '#7ee8fa50', '#96eeff50'];
+      const colors = [
+        "#36d6eb50",
+        "#4edcf050",
+        "#66e2f550",
+        "#7ee8fa50",
+        "#96eeff50",
+      ];
 
-      const randomNumbers = Array.from({ length: 5 }, () => Math.floor(Math.random() * (15 - 10 + 1)) + 11);
+      const randomNumbers = Array.from(
+        { length: 5 },
+        () => Math.floor(Math.random() * (15 - 10 + 1)) + 11
+      );
 
       this.myChart = await new Chart(ctx, {
         type: "polarArea",
@@ -46,7 +54,7 @@ export default {
               label: "Sales",
               data: randomNumbers,
               backgroundColor: colors,
-              borderColor: '#36d6eb',
+              borderColor: "#36d6eb",
               borderWidth: 1,
             },
           ],
@@ -83,7 +91,7 @@ export default {
 <style scoped>
 canvas {
   width: 100% !important;
-  height: 300px !important;
+  height: 250px !important;
   display: block;
 }
 
